@@ -1,12 +1,18 @@
+// ChatBubble.js
+
 import React from 'react';
 
-const ChatBubble = ({ content, type, link }) => {
+const ChatBubble = ({ content, type, link, openPopup }) => {
   const isUser = type === 'user';
   const bgColor = isUser ? 'bg-blue-400' : 'bg-green-400';
   const textColor = isUser ? '' : 'text-gray-800';
   const label = isUser ? 'You' : 'Bot';
   const labelPosition = isUser ? 'top-right' : 'top-left';
-  
+
+  const handleOpenPopup = () => {
+    openPopup(link);
+  };
+
   return (
     <div className={`flex ${isUser ? 'justify-start' : 'justify-start'} mb-4 transition-transform transform ease-in-out duration-300`}>
       <div
@@ -18,7 +24,7 @@ const ChatBubble = ({ content, type, link }) => {
           <div className="flex items-center mt-2">
             <button
               className="ml-2 bg-blue-700 text-white px-2 py-1 rounded"
-              onClick={() => window.open(link, '_blank')}
+              onClick={handleOpenPopup}
             >
               Open Link
             </button>
