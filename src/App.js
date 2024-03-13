@@ -1,34 +1,40 @@
+// App.js
+
 import React, { useState } from 'react';
 import Header from './Header';
 import ChatArea from './ChatArea';
 import ChatInput from './ChatInput';
-import getBotResponse from './api'; // Import the API function
+import getBotResponse from './api';
 
 const App = () => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState('');
+  const [isBotBusy, setIsBotBusy] = useState(false);
 
   const handleUserInput = (e) => {
     setUserInput(e.target.value);
   };
 
   const handleSendMessage = async () => {
-    if (userInput.trim() === '') return;
+    if (userInput.trim() === '' || isBotBusy) {
+      return;
+    }
 
-    // Add user message to the chat
-    const updatedMessages = [...messages, { content: userInput, type: 'user' }];
-    setMessages(updatedMessages);
+    setIsBotBusy(true);
+
+    // Add the user message to the chat
+    setMessages((prevMessages) => [...prevMessages, { content: userInput, type: 'user' }]);
     setUserInput('');
 
     try {
-      // Call the API function
+      // Call the API to get the bot response
       const botResponse = await getBotResponse(userInput);
-
-      // Add bot response to the chat without modifying the user's messages
-      setMessages([...updatedMessages, { content: botResponse.content, link: botResponse.link, type: 'bot' }]);
+      setMessages((prevMessages) => [...prevMessages, { ...botResponse, type: 'bot' }]);
     } catch (error) {
-      // Handle error if needed
       console.error('Error fetching bot response:', error);
+      // Handle the error, if needed
+    } finally {
+      setIsBotBusy(false);
     }
   };
 
@@ -39,7 +45,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-100">
+    <div className="flex flex-col h-screen">
       <Header />
       <ChatArea messages={messages} />
       <ChatInput
@@ -47,6 +53,7 @@ const App = () => {
         handleUserInput={handleUserInput}
         handleSendMessage={handleSendMessage}
         handleKeyPress={handleKeyPress}
+        isBotBusy={isBotBusy}
       />
     </div>
   );

@@ -7,7 +7,7 @@ const getBotResponse = async (userInput) => {
     // Simulating a random response with or without a link
     const hasLink = Math.random() > 0.5;
     const responseContent = hasLink ? 'This is a random response with a link.' : 'This is a random response without a link.';
-    const responseLink = hasLink ? 'https://example.com' : null;
+    const responseLink = hasLink ? 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' : null;
 
     // Uncomment the following lines if you want to call an actual API
     // const apiResponse = await axios.post(apiUrl, { message: userInput });
