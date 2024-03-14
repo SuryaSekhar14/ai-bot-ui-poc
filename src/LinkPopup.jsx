@@ -26,8 +26,8 @@ const LinkPopup = ({ link, onClose }) => {
                 <iframe
                 title="PDF Viewer"
                 src={`https://docs.google.com/gview?url=${link}&embedded=true`}
-                className="w-full h-full"
-                style={{height: '87vh'}}
+                className="w-full"
+                style={{height: '85vh', paddingBottom: '5vh'}}
                 frameBorder="0"
                 />
             ) : (
