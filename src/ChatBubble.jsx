@@ -20,16 +20,20 @@ const ChatBubble = ({ content, type, link, openPopup }) => {
       >
         <div className={`absolute ${labelPosition === 'top-left' ? 'top-0 right-2' : 'top-0 left-2'} top-0 right-0 text-xs text-gray-500`}>{label}</div>
         {content}
+
         {link && (
           <div className="flex items-center mt-2">
-            <button
-              className="ml-2 bg-blue-700 text-white px-2 py-1 rounded"
-              onClick={handleOpenPopup}
-            >
-              Open Link
-            </button>
+            <a href={link} target='_blank' rel='noreferrer'>
+              <button
+                className="ml-2 bg-blue-700 text-white px-2 py-1 rounded"
+                // onClick={handleOpenPopup}
+              >
+                Open Link
+              </button>
+            </a> 
           </div>
         )}
+        
       </div>
     </div>
   );
