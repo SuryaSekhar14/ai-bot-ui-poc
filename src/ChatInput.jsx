@@ -17,7 +17,7 @@ const ChatInput = ({ userInput, handleUserInput, handleSendMessage, handleKeyPre
   };
 
   return (
-    <div className="p-4 flex">
+    <div className="p-4 flex" style={{ backgroundColor: '#C88858' }}>
       <input
         ref={inputRef}
         type="text"

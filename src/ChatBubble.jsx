@@ -4,7 +4,7 @@ import React from 'react';
 
 const ChatBubble = ({ content, type, link, openPopup }) => {
   const isUser = type === 'user';
-  const bgColor = isUser ? 'bg-blue-400' : 'bg-green-400';
+  const bgColor = isUser ? 'bg-blue-400' : 'bg-customBrown'; // Color for user bubble
   const textColor = isUser ? '' : 'text-gray-800';
   const label = isUser ? 'You' : 'Bot';
   const labelPosition = isUser ? 'top-right' : 'top-left';
@@ -18,7 +18,7 @@ const ChatBubble = ({ content, type, link, openPopup }) => {
       <div
         className={`max-w-[70%] break-all ${bgColor} ${textColor} p-2 sm:p-4 rounded-lg relative`}
       >
-        <div className={`absolute ${labelPosition === 'top-left' ? 'top-0 right-2' : 'top-0 left-2'} top-0 right-0 text-xs text-gray-500`}>{label}</div>
+        <div className={`absolute ${labelPosition === 'top-left' ? 'top-0 right-2' : 'top-0 left-2'} top-0 right-0 text-xs text-gray-700`}>{label}</div>
         {content}
 
         {link && (
