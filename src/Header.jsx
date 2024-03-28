@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.jpg'; // Import your logo image
+import logo from './duracell-logo.svg'; // Import your logo image
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
       style={{ backgroundColor: '#000000' }}
     >
       <img src={logo} alt="Logo" className="h-6 mr-2" />
-      <span className="text-2xl">AI Chatbot</span>
+      <span className="text-2xl pl-5">AI Chatbot</span>
     </div>
   );
 };

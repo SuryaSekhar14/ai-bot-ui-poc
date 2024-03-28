@@ -1,21 +1,21 @@
 import axios from 'axios';
 
-const apiUrl = '/api/chatbot'; // Replace with your actual API endpoint
+const apiUrl = 'http://dur-genai-poc-azfunction3.azurewebsites.net/api/dur_genai_azfunction_http_trigger3'; // Replace with your actual API endpoint
 
 const getBotResponse = async (userInput) => {
   try {
     // Simulating a random response with or without a link
-    const hasLink = Math.random() > 0.5;
-    const responseContent = hasLink ? 'This is a random response with a link.' : 'This is a random response without a link.';
-    const responseLink = hasLink ? 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' : null;
+    // const hasLink = Math.random() > 0.5;
+    // const responseContent = hasLink ? 'This is a random response with a link.' : 'This is a random response without a link.';
+    // const responseLink = hasLink ? 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' : null;
 
     // Uncomment the following lines if you want to call an actual API
-    // const apiResponse = await axios.post(apiUrl, { message: userInput });
-    // const responseContent = apiResponse.data.content;
-    // const responseLink = apiResponse.data.link;
+    const apiResponse = await axios.get(`${apiUrl}?name=${userInput}`);
+    const responseContent = apiResponse.data.content;
+    const responseLink = apiResponse.data.link;
 
     // Simulate an API response delay for a more realistic experience
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // await new Promise(resolve => setTimeout(resolve, 1000));
 
     return {
       content: responseContent,
