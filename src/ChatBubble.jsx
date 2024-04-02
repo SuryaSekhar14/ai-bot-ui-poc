@@ -20,8 +20,8 @@ const ChatBubble = ({ content, type, links }) => {
         {links && (
           <div className="flex mt-2">
             {links.map((link, index) => (
-              <button key={index} onClick={() => window.open(link, '_blank')} className="ml-2 bg-blue-700 text-white px-2 py-1 rounded p-4">
-                Open Link {index + 1}
+              <button key={index} onClick={() => window.open(link.link, '_blank')} className="ml-2 bg-blue-700 text-white px-2 py-1 rounded p-4">
+                {link.name}
               </button>
             ))}
           </div>

@@ -3,7 +3,6 @@ import ChatBubble from './ChatBubble';
 import LinkPopup from './LinkPopup';
 
 const ChatArea = ({ messages }) => {
-  // State to manage the popup visibility and link
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [link, setLink] = useState('');
   const [hasFirstMessage, setHasFirstMessage] = useState(false); // New state to track if the first message is received
@@ -21,7 +20,6 @@ const ChatArea = ({ messages }) => {
   };
 
   useEffect(() => {
-    // Update hasFirstMessage state when the messages array changes
     if (messages.length > 0 && !hasFirstMessage) {
       setHasFirstMessage(true);
     }
@@ -29,7 +27,6 @@ const ChatArea = ({ messages }) => {
 
   const chatAreaRef = useRef();
   useEffect(() => {
-    // Scroll to the bottom with smooth animation
     chatAreaRef.current.scrollTo({
       top: chatAreaRef.current.scrollHeight,
       behavior: 'smooth',

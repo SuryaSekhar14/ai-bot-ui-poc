@@ -47,6 +47,7 @@ const getBotResponse = async (userInput) => {
 
     // Extract content and links from the response data
     const { response, links } = responseData;
+    console.log({ response, links })
 
     return {
       content: response,
