@@ -12,10 +12,13 @@ const ChatBubble = ({ content, type, links }) => {
   return (
     <div className={`flex ${isUser ? 'justify-start' : 'justify-start'} mb-4 transition-transform transform ease-in-out duration-300`}>
       <div
-        className={`max-w-[70%] break-all ${bgColor} ${textColor} p-2 sm:p-4 rounded-lg relative`}
+        className={`max-w-[70%] ${bgColor} ${textColor} p-2 sm:p-4 rounded-lg relative`}
+        style={{wordBreak: 'keep-all' }}
       >
         <div className={`absolute ${labelPosition === 'top-left' ? 'top-0 right-2' : 'top-0 left-2'} top-0 right-0 text-xs text-gray-700`}>{label}</div>
-        {content}
+        <div style={{ display: 'inline-block' }}>
+          {content}
+        </div>
 
         {links && (
           <div className="flex mt-2">

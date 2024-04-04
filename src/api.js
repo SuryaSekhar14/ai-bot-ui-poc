@@ -42,6 +42,7 @@ const apiUrl = 'https://dur-genai-poc-azfunction3.azurewebsites.net/api/dur_gena
 
 const getBotResponse = async (userInput) => {
   try {
+    console.log(`${apiUrl}?name=${userInput}`);
     const apiResponse = await axios.get(`${apiUrl}?name=${userInput}`);
     const responseData = apiResponse.data;
 
