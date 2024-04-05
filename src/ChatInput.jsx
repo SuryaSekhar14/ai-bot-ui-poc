@@ -1,6 +1,4 @@
-// ChatInput.js
-
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { IoSend } from 'react-icons/io5';
 
 const ChatInput = ({ userInput, handleUserInput, handleSendMessage, handleKeyPress, isBotBusy }) => {
@@ -14,14 +12,6 @@ const ChatInput = ({ userInput, handleUserInput, handleSendMessage, handleKeyPre
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (isBotBusy) {
-      inputRef.current.blur();
-    } else {
-      inputRef.current.focus();
-    }
-  }, [isBotBusy]);
 
   return (
     <div className="p-4 flex" style={{ backgroundColor: '#C88858' }}>

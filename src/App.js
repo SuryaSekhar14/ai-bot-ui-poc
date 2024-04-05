@@ -1,5 +1,3 @@
-// App.js
-
 import React, { useState } from 'react';
 import Header from './Header';
 import ChatArea from './ChatArea';
@@ -19,20 +17,15 @@ const App = () => {
     if (userInput.trim() === '' || isBotBusy) {
       return;
     }
-
     setIsBotBusy(true);
-
-    // Add the user message to the chat
     setMessages((prevMessages) => [...prevMessages, { content: userInput, type: 'user' }]);
     setUserInput('');
 
     try {
-      // Call the API to get the bot response
       const botResponse = await getBotResponse(userInput);
       setMessages((prevMessages) => [...prevMessages, { ...botResponse, type: 'bot' }]);
     } catch (error) {
       console.error('Error fetching bot response:', error);
-      // Handle the error, if needed
     } finally {
       setIsBotBusy(false);
     }

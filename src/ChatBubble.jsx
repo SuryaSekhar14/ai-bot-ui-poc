@@ -1,10 +1,8 @@
-// ChatBubble.js
-
 import React from 'react';
 
 const ChatBubble = ({ content, type, links }) => {
   const isUser = type === 'user';
-  const bgColor = isUser ? 'bg-blue-400' : 'bg-customBrown'; // Color for user bubble
+  const bgColor = isUser ? 'bg-blue-400' : 'bg-customBrown';
   const textColor = isUser ? '' : 'text-gray-800';
   const label = isUser ? 'You' : 'Bot';
   const labelPosition = isUser ? 'top-right' : 'top-left';
