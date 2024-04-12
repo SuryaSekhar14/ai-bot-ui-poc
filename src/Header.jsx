@@ -8,7 +8,7 @@ const Header = () => {
       style={{ backgroundColor: '#000000' }}
     >
       {/* <img src={logo} alt="Logo" className="h-6 mr-2" /> */}
-      <span className="text-2xl pl-5">AI Chatbot</span>
+      <span className="text-2xl pl-5">Chatbot</span>
     </div>
   );
 };
